@@ -1,9 +1,5 @@
 package intervals
 
-import (
-	"fmt"
-)
-
 // Interval holds interval info
 type Interval struct {
 	Start int
