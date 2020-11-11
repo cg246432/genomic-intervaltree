@@ -25,8 +25,8 @@ func NewInterval(start int, stop int) Interval{
 }
 
 // DeleteInterval sets the interval back to empty
-func (i *Interval) DeleteInterval() {
-	i = &Interval{}
+func (i Interval) DeleteInterval() {
+	i = Interval{}
 }
 
 //Overlap determines whether a start and stop overlaps this interval
