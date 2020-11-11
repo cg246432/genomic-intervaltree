@@ -15,6 +15,8 @@ type Interval struct {
 func (i Interval) Overlap(begin int, end int) bool {
 	//
 	if !(i.Stop <= begin || i.Start >= end) {
+		fmt.Println(i.Stop <= begin)
+		fmt.Println(i.Start >= end)
 		fmt.Println(i.Start, i.Stop, begin, end)
 		return false
 	}
