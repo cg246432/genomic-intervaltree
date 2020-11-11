@@ -16,3 +16,22 @@ func (i Interval) Overlap(begin int, end int) bool {
 	return true
 
 }
+
+// OverlapSize returns size of overlap
+func (i Interval) OverlapSize(begin int, end int) int {
+	if i.Overlap(begin, end){
+		var minOverlap int
+		minOverlap = i.Stop - i.Start
+		if (i.Stop - begin) < minOverlap{
+			minOverlap = i.Stop - begin
+		}
+		if (end - begin) < minOverlap{
+			minOverlap = end - begin
+		}
+		if (end - i.Start) < minOverlap{
+			minOverlap = end - i.Start
+		}
+		return minOverlap
+	}
+	return 0
+}
