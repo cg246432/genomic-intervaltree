@@ -2,11 +2,11 @@ package intervals
 
 // Interval holds interval info
 type Interval struct {
-	start int
-	stop  int
-	data  map[string]interface{}
+	Start int
+	Stop  int
+	Data  map[string]interface{}
 }
 
-func (i Interval) overlap(begin int, end int) bool{
+func (i Interval) Overlap(begin int, end int) bool{
 	return true
 }
