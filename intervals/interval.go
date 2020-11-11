@@ -13,6 +13,17 @@ func (i *Interval) checkorder() {
 	}
 }
 
+// NewInterval acts as a settter
+func NewInterval(start int, stop int, data map[string]interface{}) Interval{
+	newInterval := Interval{
+		Start: start,
+		Stop: stop,
+		Data: data
+	}
+	newInterval.checkorder()
+	return newInterval
+}
+
 //Overlap determines whether a start and stop overlaps this interval
 func (i Interval) Overlap(begin int, end int) bool {
 	i.checkorder()
