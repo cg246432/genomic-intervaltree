@@ -14,11 +14,10 @@ func (i *Interval) checkorder() {
 }
 
 // NewInterval acts as a settter
-func NewInterval(start int, stop int, data map[string]interface{}) Interval{
+func NewInterval(start int, stop int) Interval{
 	newInterval := Interval{
 		Start: start,
 		Stop: stop,
-		Data: data,
 	}
 	newInterval.checkorder()
 	return newInterval
