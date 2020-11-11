@@ -18,7 +18,7 @@ func NewInterval(start int, stop int, data map[string]interface{}) Interval{
 	newInterval := Interval{
 		Start: start,
 		Stop: stop,
-		Data: data
+		Data: data,
 	}
 	newInterval.checkorder()
 	return newInterval
