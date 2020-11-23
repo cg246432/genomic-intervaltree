@@ -1,4 +1,4 @@
-package intervals
+package genomicintervaltree
 
 // Interval holds interval info
 type Interval struct {

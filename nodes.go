@@ -1,16 +1,16 @@
-package intervals
+package genomicintervaltree
 
 // Node holds tree node info
 type Node struct {
-	interval Interval
-	left     *Node
-	right    *Node
-	max      int
+	NodeInterval Interval
+	Left         *Node
+	Right        *Node
+	Max          int
 }
 
 //HasChild determines whether this is a parent node or the end of a branch
 func (n Node) HasChild() bool {
-	if n.left != nil || n.right != nil {
+	if n.Left != nil || n.Right != nil {
 		return true
 	}
 	return false
@@ -22,11 +22,11 @@ func (n Node) MaxChild() Interval {
 		return Interval{}
 	}
 	var childIntervals []Interval
-	if n.left != nil {
-		childIntervals = append(childIntervals, n.left.interval)
+	if n.Left != nil {
+		childIntervals = append(childIntervals, n.Left.NodeInterval)
 	}
-	if n.right != nil {
-		childIntervals = append(childIntervals, n.right.interval)
+	if n.Right != nil {
+		childIntervals = append(childIntervals, n.Right.NodeInterval)
 	}
 	if len(childIntervals) == 1 {
 		return childIntervals[0]

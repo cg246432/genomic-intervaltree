@@ -1,6 +1,8 @@
-package intervals
+package genomicintervaltree
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // IntervalTree holder
 type IntervalTree struct {
@@ -11,18 +13,18 @@ type IntervalTree struct {
 func (i *IntervalTree) AddNode(newNode Node) {
 	currentNode := i.root
 	for currentNode != nil {
-		if newNode.interval.Start <= currentNode.interval.Start {
-			if (currentNode.left == &Node{}) {
-				currentNode.left = &newNode
+		if newNode.NodeInterval.Start <= currentNode.NodeInterval.Start {
+			if (currentNode.Left == &Node{}) {
+				currentNode.Left = &newNode
 				return
 			}
-			currentNode = currentNode.left
+			currentNode = currentNode.Left
 		} else {
-			if (currentNode.right == &Node{}) {
-				currentNode.right = &newNode
+			if (currentNode.Right == &Node{}) {
+				currentNode.Right = &newNode
 				return
 			}
-			currentNode = currentNode.right
+			currentNode = currentNode.Right
 		}
 	}
 
