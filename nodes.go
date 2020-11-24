@@ -1,4 +1,4 @@
-package main
+package genomicintervaltree
 
 // Node holds tree node info
 type Node struct {
