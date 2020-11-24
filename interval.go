@@ -1,4 +1,4 @@
-package genomicintervaltree
+package main
 
 import (
 	"fmt"

@@ -1,4 +1,4 @@
-package genomicintervaltree
+package main
 
 // IntervalTree holder
 type IntervalTree struct {
