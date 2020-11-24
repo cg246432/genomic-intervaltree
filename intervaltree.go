@@ -1,9 +1,5 @@
 package genomicintervaltree
 
-import (
-	"fmt"
-)
-
 // IntervalTree holder
 type IntervalTree struct {
 	root *Node
@@ -31,8 +27,18 @@ func (i *IntervalTree) AddNode(newNode Node) {
 }
 
 // SearchOverlap searches the interval tree for an overlap
-func (i *IntervalTree) SearchOverlap(queryNode Node) {
-	//parentNode := nil
+func (i *IntervalTree) SearchOverlap(queryNode Node) (Node, Node, bool) {
 	currentNode := i.root
-	fmt.Println(currentNode)
+	for !(currentNode != nil) {
+		if queryNode.NodeInterval.Overlap(currentNode.NodeInterval) {
+			print("Overlapping with ", currentNode.NodeInterval)
+			return queryNode, *currentNode, true
+		}
+		if currentNode.Max >= queryNode.NodeInterval.Start {
+			currentNode = currentNode.Left
+		} else {
+			currentNode = currentNode.Right
+		}
+	}
+	return queryNode, Node{}, false
 }
