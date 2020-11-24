@@ -31,7 +31,7 @@ func (i *IntervalTree) SearchOverlap(queryNode Node) (Node, Node, bool) {
 	currentNode := i.root
 	for !(currentNode != nil) {
 		if queryNode.NodeInterval.Overlap(currentNode.NodeInterval) {
-			print("Overlapping with ", currentNode.NodeInterval)
+			print("Overlapping with ", (*currentNode).NodeInterval)
 			return queryNode, *currentNode, true
 		}
 		if currentNode.Max >= queryNode.NodeInterval.Start {
