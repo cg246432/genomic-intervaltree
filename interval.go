@@ -1,5 +1,9 @@
 package genomicintervaltree
 
+import (
+	"fmt"
+)
+
 // Interval holds interval info
 type Interval struct {
 	Start int
@@ -35,6 +39,11 @@ func (i *Interval) DeleteInterval() {
 // Length is size of the interval
 func (i Interval) Length() int {
 	return i.Stop - i.Start
+}
+
+// toString allows a print of the interval
+func (i Interval) toString() string {
+	return fmt.Sprintf("%d--%d\n", i.Start, i.Stop)
 }
 
 //Overlap determines whether a start and stop overlaps this interval
